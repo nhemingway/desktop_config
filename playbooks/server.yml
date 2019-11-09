@@ -1,0 +1,6 @@
+- hosts: servers
+  roles:
+    - system-update
+    - packet-tools
+    - programming-env
+    - commandline-tools

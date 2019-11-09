@@ -1,0 +1,12 @@
+- name: Remove old mercurial
+  package:
+    name: mercurial
+    state: absent
+- name: Install mercurial pip
+  pip:
+    name: mercurial
+    state: latest
+- name: Install RBTools
+  pip:
+    name: rbtools
+    state: latest

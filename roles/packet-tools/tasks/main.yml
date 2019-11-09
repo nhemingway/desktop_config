@@ -1,0 +1,9 @@
+- name: Installing wireshark
+  package:
+    name: wireshark
+    state: latest
+  when: has_x
+- name: Installing scapy
+  pip:
+    name: scapy
+    state: latest

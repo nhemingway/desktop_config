@@ -1,0 +1,8 @@
+- name: Updating packages
+  package:
+    name: '*'
+    state: latest
+- name: Updating Python PIP
+  pip:
+    name: pip
+    state: latest

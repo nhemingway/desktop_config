@@ -1,0 +1,5 @@
+- name: Enable SysRq
+  sysctl:
+    name: kernel.sysrq
+    value: 1
+    sysctl_set: yes

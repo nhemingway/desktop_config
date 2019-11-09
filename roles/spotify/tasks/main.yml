@@ -1,0 +1,13 @@
+- name: snapd
+  package:
+    name: snapd
+
+- file:
+    state: link
+    path: /snap
+    src: /var/lib/snapd/snap
+
+- name: Install spotify
+  snap:
+    name: spotify
+    state: present 

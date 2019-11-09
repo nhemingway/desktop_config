@@ -1,0 +1,21 @@
+- name: Installing python pip
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - python2-pip
+    - python2-devel
+    - python2-tkinter
+
+- name: Installing pips
+  pip:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - tap.py
+    - pylint
+    - ipython
+    - pip
+    - prometheus_client
+    - numpy
+    - matplotlib

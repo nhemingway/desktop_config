@@ -1,0 +1,5 @@
+- name: Install difftool
+  package:
+    name: meld
+    state: latest
+  when: has_x

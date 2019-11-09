@@ -1,0 +1,9 @@
+- hosts: desktop
+  roles:
+    - ansible
+    - sysrq
+    - system-update
+    - packet-tools
+    - programming-env
+    - commandline-tools
+    - desktop-env

@@ -1,0 +1,10 @@
+dependencies:
+  - role: python-devel
+  - role: perl-devel
+  - role: ruby-devel
+  - role: mercurial
+  - role: code-editor
+    when: has_x
+  #- role: tortoisehg
+  #  when: has_x
+  - role: git

@@ -1,0 +1,19 @@
+- name: Installing ruby gems
+  package:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - ruby
+    - ruby-devel
+    - rubygems
+- name: Installing gems
+  gem:
+    name: "{{ item }}"
+    state: latest
+    user_install: no
+  loop:
+    - pry
+    - irbtools
+    - irbtools-more
+    - rake
+    - rubocop

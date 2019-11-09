@@ -1,0 +1,33 @@
+- name: Enable extra repo
+  package:
+    name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+    state: latest
+  when: ansible_distribution == "Fedora"
+
+- name: Install desktop apps
+  package:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - pavucontrol
+    - ack
+    - levien-inconsolata-fonts
+    - mpg123
+    - mplayer
+    - ffmpeg
+    - i3
+    - feh
+    - gimp
+    - keepass
+    - wireshark
+    - hgview
+    - gnome-tweak-tool
+    - gimp
+    - gnome-shell-extension-window-list
+
+- name: Disable system sound
+  dconf:
+    key: "/org/gnome/desktop/sound/event-sounds"
+    value: "false"
+  become: true
+  become_user: '{{ local_user }}'

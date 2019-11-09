@@ -1,0 +1,10 @@
+- name: Installing perl modules
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - perl-File-Slurp
+    - perl-JSON
+    - perl-List-MoreUtils
+    - perl-XML-Simple
+    - perl-LWP-Protocol-https

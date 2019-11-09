@@ -1,0 +1,4 @@
+- name: Installing git
+  package:
+    name: git-all
+    state: present

@@ -1,0 +1,6 @@
+- name: Latest ansible
+  pip:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - ansible

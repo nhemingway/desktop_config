@@ -1,0 +1,32 @@
+- name: Clone tortoisehg
+  hg:
+    clone: yes
+    dest: /opt/tortoisehg
+    repo: "https://bitbucket.org/tortoisehg/thg"
+    update: yes
+    revision: stable
+  register: clone
+- name: Install build deps
+  package:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - python-qt5
+    - python2-qscintilla-qt5
+- name: Build ui
+  command: python setup.py build_ui
+  args:
+    chdir: /opt/tortoisehg
+  when: clone.changed
+- name: Set permissions on tortoisehg checkout
+  file:
+    name: /opt/tortoisehg
+    mode: ugo+r
+    recurse: yes
+  when: clone.changed
+- name: Create softlink in /usr/bin
+  file:
+    src: /opt/tortoisehg/thg
+    state: link
+    dest: /usr/bin/thg
+    mode: ugo+rx

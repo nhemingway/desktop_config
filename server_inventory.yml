@@ -1,0 +1,7 @@
+all:
+  vars:
+    has_x: False
+  children:
+    servers:
+      hosts:
+        dellr620c:
